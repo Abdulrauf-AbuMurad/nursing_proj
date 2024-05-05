@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Questionnaire</title>
+    <style>
+        /* Add any custom CSS styles here */
+        .banner {
+            width: 100%;
+            height: auto;    
+        }
+        body {
+            background-color: #fce4ec; /* Light pink background color */
+            color: #000000; /* Black text color */
+            font-family: Arial, sans-serif; /* Default font family */
+            font-size: 22px;
+        }
+        input[type="radio"] {
+        transform: scale(2); /* Increase scale as needed */
+    }
+
+    /* Increase size of checkboxes */
+    input[type="checkbox"] {
+        transform: scale(2); /* Increase scale as needed */
+    }
+        h1 {
+            color: #c2185b; /* Dark pink heading color */
+        }
+        ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px; /* Add some space between list items */
+        }
+        button {
+            background-color: #c2185b; /* Dark pink button background color */
+            color: #ffffff; /* White button text color */
+            padding: 10px 20px; /* Add padding to the button */
+            border: none; /* Remove button border */
+            border-radius: 5px; /* Add border radius to button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        button:hover {
+            background-color: #ad1457; /* Darken button color on hover */
+        }
+        .submit-button {
+        background-color: #c2185b; /* Dark pink button background color */
+        color: #ffffff; /* White button text color */
+        padding: 10px 20px; /* Add padding to the button */
+        border: none; /* Remove button border */
+        border-radius: 5px; /* Add border radius to button */
+        cursor: pointer; /* Change cursor to pointer on hover */
+    }
+
+    .submit-button:hover {
+        background-color: #ad1457; /* Darken button color on hover */
+    }
+
+    </style>
+</head>
+<body dir="rtl">
+    <div style="text-align: center;">
+        <img src="\static\pregnant_woman.jpg" alt="Banner" class="banner" style="width: 65%; height: 350px;">
+    </div>
+   
+    <h1>استبيان الحمل</h1>
+    <form action="/submit" method="post" id="myform">
+        <label for="regular_care">هل تحصلين على رعاية الحمل بشكل منتظم؟</label><br>
+        <input type="radio" id="regular_care" name="regular_care" value="yes" required> نعم<br>
+        <input type="radio" id="regular_care" name="regular_care" value="no"> لا<br><br>
+
+        <label for="smoking">هل تدخنين؟</label><br>
+        <input type="radio" id="smoking" name="smoking" value="yes" required> نعم<br>
+        <input type="radio" id="smoking" name="smoking" value="no"> لا<br><br>
+
+        <label for="chronic_diseases">هل تعانين اي من الامراض المزمنة التالية؟</label><br>
+        <input type="checkbox" id="chronic_diseases" name="chronic_diseases[]" value="hypertension"> الضغط<br>
+        <input type="checkbox" id="chronic_diseases" name="chronic_diseases[]" value="diabetes"> السكري<br>
+        <input type="checkbox" id="chronic_diseases" name="chronic_diseases[]" value="asthma"> الأزمة<br>
+        <input type="checkbox" id="chronic_diseases" name="chronic_diseases[]" value="none"> لا شيء مما ذكر<br><br>
+
+        <label for="weekly_bowel_movements">عدد مرات الاخراج في الاسبوع الواحد؟</label><br>
+        <input type="radio" id="weekly_bowel_movements" name="weekly_bowel_movements" value="less_than_3" required> أقل من ٣ مرات<br>
+        <input type="radio" id="weekly_bowel_movements" name="weekly_bowel_movements" value="more_than_3"> أكثر من ٣ مرات<br><br>
+
+        <label for="problems">هل تعانين من اي من المشاكل الاتيه؟</label><br>
+        <input type="radio" id="problems" name="problems" value="constipation"> امساك<br>
+        <input type="radio" id="problems" name="problems" value="diarrhea"> اسهال<br>
+        <input type="radio" id="problems" name="problems" value="none"> لاشي مما ذكر<br><br>
+
+        <label for="urination_frequency">عدد مرات التبول في اليوم الواحد</label><br>
+        <input type="radio" id="urination_frequency" name="urination_frequency" value="zero" required> صفر<br>
+        <input type="radio" id="urination_frequency" name="urination_frequency" value="1-3"> (١-٣)<br>
+        <input type="radio" id="urination_frequency" name="urination_frequency" value="more_than_5"> اكثر من ٥ مرات<br><br>
+
+        <label for="exercise">هل تقومين بممارسة التمارين الرياضية؟</label><br>
+        <input type="radio" id="exercise" name="exercise" value="yes" required> نعم<br>
+        <input type="radio" id="exercise" name="exercise" value="no"> لا<br><br>
+        
+
+        <label for="health_issues">المشاكل الصحية (اختر كل ما ينطبق)</label><br>
+        <input type="checkbox" name="health_issues" value="weight_loss"> فقدان الوزن<br>
+        <input type="checkbox" name="health_issues" value="continuous_nausea_vomiting"> غثيان وتقيء مستمر<br>
+        <input type="checkbox" name="health_issues" value="gestational_diabetes"> سكري الحمل<br>
+        <input type="checkbox" name="health_issues" value="high_blood_pressure"> ارتفاع ضغط الدم خلال الحمل<br>
+        <input type="checkbox" name="health_issues" value="preeclampsia"> تسمم الحمل<br>
+        <input type="checkbox" name="health_issues" value="bleeding"> نزيف<br>
+        <input type="checkbox" name="health_issues" value="severe_abdominal_pain"> ألم شديد في البطن<br>
+        <input type="checkbox" name="health_issues" value="burning_during_urination"> حرقة أثناء التبول<br>
+        <input type="checkbox" name="health_issues" value="fever"> ارتفاع في درجة الحرارة<br>
+        <input type="checkbox" name="health_issues" value="severe_persistent_headache"> صداع شديد ومستمر<br>
+
+
+
+        <input type="submit" class="submit-button" value="تقديم">
+        <button type="button" onclick="clearOptions()">اعادة التعبئة</button>
+
+    </form>
+    <script>
+        function clearOptions() {
+            document.getElementById("myform").reset();
+        }
+    </script>
+</body>
+</html>

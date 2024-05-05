@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النصائح</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background color */
+            color: #000000; /* Black text color */
+            font-family: Arial, sans-serif; /* Default font family */
+            font-size: 22px;
+
+        }
+        h1 {
+            color: #c2185b; /* Dark pink heading color */
+        }
+        ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px; /* Add some space between list items */
+        }
+        button {
+            background-color: #c2185b; /* Dark pink button background color */
+            color: #ffffff; /* White button text color */
+            padding: 10px 20px; /* Add padding to the button */
+            border: none; /* Remove button border */
+            border-radius: 5px; /* Add border radius to button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        button:hover {
+            background-color: #ad1457; /* Darken button color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Your insights content here -->
+        {{ insights | safe }}
+    </div>
+    <div>
+        <a href="{{ url_for('forbidden_medications') }}"><button>Forbidden Medications</button></a>
+    </div>
+</body>
+</html>
